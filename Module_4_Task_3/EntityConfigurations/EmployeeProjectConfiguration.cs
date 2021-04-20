@@ -13,20 +13,8 @@ namespace Module_4_Task_3.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<EmployeeProject> builder)
         {
-            builder.ToTable("EmployeeProject");
-            builder.Property(employeeProject => employeeProject.Id).HasColumnName("EmployeeProjectId");
             builder.Property(employeeProject => employeeProject.Rate).IsRequired().HasColumnType("money");
             builder.Property(employeeProject => employeeProject.StartedDate).IsRequired().HasColumnType("datetime2(7)");
-
-            builder.HasOne(employeeProject => employeeProject.Employee)
-                .WithMany(employee => employee.EmployeeProjects)
-                .HasForeignKey(employeeProject => employeeProject.EmployeeId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasOne(employeeProject => employeeProject.Project)
-                .WithMany(project => project.ProjectEmployees)
-                .HasForeignKey(employeeProject => employeeProject.ProjectId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -13,6 +13,6 @@ namespace Module_4_Task_3.Entities
         public decimal Budget { get; set; }
         public DateTime StartedDate { get; set; }
 
-        public List<EmployeeProject> ProjectEmployees { get; set; } = new List<EmployeeProject>();
+        public List<Employee> Employees { get; set; } = new List<Employee>();
     }
 }

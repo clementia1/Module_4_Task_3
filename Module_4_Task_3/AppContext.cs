@@ -22,7 +22,7 @@ namespace Module_4_Task_3
         public DbSet<Office> Offices { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<Project> Projects { get; set; }
-        public DbSet<Project> EmployeeProject { get; set; }
+        public DbSet<EmployeeProject> EmployeeProject { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

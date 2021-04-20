@@ -20,6 +20,6 @@ namespace Module_4_Task_3.Entities
         public int TitleId { get; set; }
         public Title Title { get; set; }
 
-        public List<EmployeeProject> EmployeeProjects { get; set; } = new List<EmployeeProject>();
+        public List<Project> Projects { get; set; } = new List<Project>();
     }
 }
