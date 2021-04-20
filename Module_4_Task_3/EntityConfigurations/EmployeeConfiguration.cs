@@ -13,6 +13,22 @@ namespace Module_4_Task_3.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Employee> builder)
         {
+            builder.ToTable("Employee");
+            builder.Property(employee => employee.Id).HasColumnName("EmployeeId");
+            builder.Property(employee => employee.FirstName).IsRequired().HasMaxLength(50);
+            builder.Property(employee => employee.LastName).IsRequired().HasMaxLength(50);
+            builder.Property(employee => employee.HiredDate).IsRequired().HasColumnType("datetime2(7)");
+            builder.Property(employee => employee.DateOfBirth).IsRequired().HasColumnType("date");
+
+            builder.HasOne(employee => employee.Title)
+                .WithMany(title => title.Employees)
+                .HasForeignKey(employee => employee.TitleId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(employee => employee.Office)
+                .WithMany(office => office.Employees)
+                .HasForeignKey(employee => employee.OfficeId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

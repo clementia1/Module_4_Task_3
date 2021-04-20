@@ -14,7 +14,7 @@ namespace Module_4_Task_3.EntityConfigurations
         public void Configure(EntityTypeBuilder<Project> builder)
         {
             builder.ToTable("Project");
-            builder.Property(project => project.Id).HasColumnName("OfficeId");
+            builder.Property(project => project.Id).HasColumnName("ProjectId");
             builder.Property(project => project.Name).IsRequired().HasMaxLength(50);
             builder.Property(project => project.Budget).IsRequired().HasColumnType("money");
             builder.Property(project => project.StartedDate).IsRequired().HasColumnType("datetime2(7)");
