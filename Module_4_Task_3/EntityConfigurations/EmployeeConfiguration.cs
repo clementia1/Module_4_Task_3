@@ -18,7 +18,7 @@ namespace Module_4_Task_3.EntityConfigurations
             builder.Property(employee => employee.FirstName).IsRequired().HasMaxLength(50);
             builder.Property(employee => employee.LastName).IsRequired().HasMaxLength(50);
             builder.Property(employee => employee.HiredDate).IsRequired().HasColumnType("datetime2(7)");
-            builder.Property(employee => employee.DateOfBirth).IsRequired().HasColumnType("date");
+            builder.Property(employee => employee.DateOfBirth).HasColumnType("date");
 
             builder.HasOne(employee => employee.Title)
                 .WithMany(title => title.Employees)
