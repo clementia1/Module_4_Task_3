@@ -23,12 +23,12 @@ namespace Module_4_Task_3.EntityConfigurations
             builder.HasOne(employee => employee.Title)
                 .WithMany(title => title.Employees)
                 .HasForeignKey(employee => employee.TitleId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(employee => employee.Office)
                 .WithMany(office => office.Employees)
                 .HasForeignKey(employee => employee.OfficeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
