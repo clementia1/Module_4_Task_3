@@ -25,11 +25,13 @@ namespace Module_4_Task_3.EntityConfigurations
                     j => j
                         .HasOne<Employee>()
                         .WithMany()
-                        .HasForeignKey("EmployeeId"),
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade),
                     j => j
                         .HasOne<Project>()
                         .WithMany()
-                        .HasForeignKey("ProjectId"),
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade),
                     j =>
                     {
                         j.HasKey(t => t.Id);
